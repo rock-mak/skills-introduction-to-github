@@ -1,0 +1,32 @@
+import random
+import math
+
+count = 0
+min_num = 0
+max_num = 100
+number = random.randint(0,100)
+playing = True
+print("I will guess your number! ")
+
+while playing:
+    printing = print("I guess the number is %s" %number)
+    printing
+    user_feedback = input("Let me know if that correct, higher or lower")
+    if "higher" in user_feedback.lower():
+        min_num = number
+        number = math.floor((min_num+max_num)/2)
+        printing
+    elif "lower" in user_feedback.lower():
+        max_num = number
+        number = math.floor((min_num+max_num)/2)
+        printing
+    elif "correct" in user_feedback.lower():
+        tries = "try" if count < 2 else "tries"
+        print("Yeah, I made it in %s %s" %(count,tries))
+        playing = False
+    else:
+        print("TELL ME IF IT IS HIGHER OR LOWER!")
+    count += 1    
+    
+    
+print("Thanks for playing")
